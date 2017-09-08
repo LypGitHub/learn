@@ -68,8 +68,7 @@ const getHtml = ip => {
         getHtml(ip)
       }
     })
-  })
-  
+  }) 
 }
 
 setInterval(() => {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "async": "node learn/async-learn.js"
   },
   "author": "",
   "license": "ISC",
