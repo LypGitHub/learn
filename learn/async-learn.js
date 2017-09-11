@@ -1,6 +1,6 @@
 const dns = require('dns');
 const http = require('http');
-// const _ = require('lodash');
+const unique = require('../util').unique;
 
 /**
  * host
@@ -15,28 +15,6 @@ const URLS = [
  * 错误重试
  */
 let count = 0;
-
-/**
- * hash去重，存在抛出异常
- * @param {String} url 域名
- */
-const unique = () => {
-  const hash = {};
-  const result = [];
-
-  return (url) => {
-    if (Object.prototype.toString.call(url).toLowerCase() !== '[object string]') {
-      throw Error(`type error ====> ${url}`);
-    }
-
-    if (!hash[url]) {
-      result.push[url]
-      hash[url] = true
-      return url;
-    }
-    throw Error(`exist host path ====> ${url}`);
-  };
-};
 
 const checkUnique = unique();
 
