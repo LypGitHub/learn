@@ -10,9 +10,9 @@ const getRandomStr = (length = 6) => {
   const dataPond = ['48-57', '65-90', '97-122'] // 数字 大写字母 小写字母
   const getStr = () => {
     const index = Math.floor(Math.random() * 3)
-    const inPond = dataPond[index].split('-')
-    const min = Number(inPond[0])
-    const max = Number(inPond[1])
+    const inPond = dataPond[index].split('-').map(num => Number(num))
+    const min = inPond[0]
+    const max = inPond[1]
     return String.fromCharCode(getBetweenNum(min, max))
   }
 
