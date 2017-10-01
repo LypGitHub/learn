@@ -22,4 +22,32 @@ module.exports = class Util {
       throw Error(`exist host path ====> ${url}`);
     };
   }
+  
+  /**
+   * 获取两个数之间的随机数
+   * 
+   * @static
+   * @param {any} min
+   * @param {any} max
+   * @returns {Number}
+   */
+  static getBetweenNum (min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
+  /**
+   * 校验方法
+   * 
+   * @static
+   * @param {any} type
+   * @param {any} value
+   * @returns {Boolean}
+   */
+  static validator(type, value) {
+    const validType = {
+      'isNaN': () => value === NaN
+    }
+    return typeof validType[type] === 'function' ?
+      validType[type]() : console.warn('无效校验方式')
+  }
 }
