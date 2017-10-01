@@ -36,11 +36,11 @@ const getHtml = ip => {
       }
     })
   }) 
-};
+}
 
-const promises = URLS.map(item => getIpByDns(item));
+const promises = URLS.map(item => getIpByDns(item))
 
 Promise.all(promises)
   .then(values => Promise.all(values.map(ip => getHtml(ip))))
   .then(contents => console.log(contents))
-  .catch(error => console.error('error message: ', error));
+  .catch(error => console.error('error message: ', error))

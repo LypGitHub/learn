@@ -5,7 +5,7 @@ module.exports = class Util {
    * 
    * @returns {String}
    */
-  unique() {
+  static unique() {
     const hash = {};
     const result = [];
 
