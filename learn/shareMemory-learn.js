@@ -39,8 +39,6 @@ for (let i = 0, len = 100000; i < len; i++) {
 console.timeEnd('create a ten thousand length of Array throught share memory way');
 
 
-const memory = new ShareMemory(['index', 'id', 'value', 'price'], 10000, 200, callBack);
-
 class CreateObject {
   constructor () {
     this.data = {
@@ -49,12 +47,16 @@ class CreateObject {
     }
   }
 
+  setData (data) {
+    let obj = this.data
+    return (function() {
+      Object.keys(data).map(key => (obj[key] = data[key]))
+      return obj
+    })()
+  }
+
   create(data) {
-    const keyCopier = key => {
-      this.data[key] = data.hasOwnProperty(key) && data[key]
-    }
-    Object.keys(this.data).forEach(keyCopier);
-    return this.data
+    return this.setData(this.data, data)
   }
 }
 
@@ -62,10 +64,12 @@ class CreateObject {
 const createObj = new CreateObject()
 
 for (let i = 0, len = 100000; i < len; i++) {
-  normalArray.push(createObj.create({
+  const data = createObj.create({
     value: `第${i}数组`,
     key: i
-  }));
+  })
+  console.log(data)
+  normalArray.push(data);
 }
 
 
