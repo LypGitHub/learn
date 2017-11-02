@@ -60,4 +60,5 @@
  ### 运行查看效果
  yarn nodeXitu
 ```
-![答案](static/preview.png=100x100)
+
+![答案](static/preview.png){:height="100px" width="100px"}
