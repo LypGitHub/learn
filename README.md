@@ -54,4 +54,4 @@
 ### 稀土console 面试题
 [稀土](https://juejin.im)
 
-![稀土](./static/xitu.pne)
+![稀土](static/xitu.pne)
