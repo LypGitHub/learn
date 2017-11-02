@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "async": "node learn/async-learn.js",
-    "promise": "node learn/promise-learn.js"
+    "promise": "node learn/promise-learn.js",
+    "build-watch": "rm -rf learn/xitu/xitu.learn.main.js && tsc learn/xitu/xitu.learn.main.ts -watch -outDir learn/xituOut",
+    "nodeXitu": "node learn/xituOut/xitu.learn.main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^2.5.0",
     "bluebird": "^3.5.0",
+    "chalk": "^2.3.0",
     "lodash": "^4.17.4"
   }
 }
