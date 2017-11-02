@@ -1,7 +1,7 @@
 import { Frontend } from './xitu.interface'
 import Person from './Xitu.Person.class'
 
-export default class FrontendEngineer extends Person implements Frontend {
+export default class FrontendEngineer implements Frontend {
   baseSkill = [
     'html',
     'css',
@@ -10,10 +10,6 @@ export default class FrontendEngineer extends Person implements Frontend {
 
   getBaseSkill () {
     return this.baseSkill;
-  }
-
-  personSkill() {
-    return this.baseSkill.concat(this.skill || [])
   }
 
   tryToPlay(thing) {

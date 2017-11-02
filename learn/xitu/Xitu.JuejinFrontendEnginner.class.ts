@@ -3,7 +3,7 @@ import FrontendEngineer from './Xitu.FrontendEngineer.class'
 export default class JuejinFrontendEnginner extends FrontendEngineer {
   thingList: string[];
   constructor (person) {
-    super(person)
+    super()
     this.thingList = [
       'ES6+',
       'Node.js v8+',
@@ -17,7 +17,6 @@ export default class JuejinFrontendEnginner extends FrontendEngineer {
     ]
   }
   doSomeInterestingThings () {
-    this.personSkill()
     this.thingList.forEach(this.tryToPlay.bind(this))
   }
 }

@@ -1,16 +1,5 @@
 import chalk from 'chalk';
-
-
-interface Data {
-  color: string;
-  type: string;
-  content: string;
-  title?: string;
-  setColor(color: string): void;
-  setType(type: string): void;
-  setContent(content: string): void;
-}
-
+import { Data } from './xitu.interface'
 
 export default class ConsoleUtil implements Data {
   color: string;
@@ -18,21 +7,26 @@ export default class ConsoleUtil implements Data {
   content: string;
   title: string;
   createType = {
-    'table': this.createTable()
+    'table': this.createTable,
+    'line': this.createLine
   }
 
   defaultOption = <Data>{
     color: 'white',
-    type: 'normal',
+    type: 'table',
     content: 'no content',
     title: 'no title'
   }
 
-  init(color: string, content: string, type: string, title: string) {
-    this.setColor(color || this.defaultOption.color)
-    this.setType(type || this.defaultOption.type)
-    this.setContent(content || this.defaultOption.content)
-    this.setTitle(title || this.defaultOption.title)
+  init<T>(arg: Data): void {
+    this.setColor(arg.color || this.defaultOption.color)
+    this.setType(arg.type || this.defaultOption.type)
+    this.setContent(arg.content || this.defaultOption.content)
+    this.setTitle(arg.title || this.defaultOption.title)
+
+    typeof this.createType[this.type] === 'function'
+    ? this.createType[this.type].call(this)
+    : null
   }
 
   setColor(color: string) {
@@ -50,7 +44,24 @@ export default class ConsoleUtil implements Data {
   setTitle(title: string) {
     this.title = title;
   }
-  createTable() {
 
+  wrapTitle() {
+    return chalk.bgMagenta(`\n${chalk.white(this.title)}: `);
+  }
+
+  createLine() {
+    const content = this.wrapTitle() + this.content.split(',').reduce((pre, next) => pre + next + '\n', '\n')
+
+    return console.log(chalk[this.color](content))
+  }
+
+  createTable() {
+    const content = this.content.split(',')
+    const line = '\n-----------------------------------------\n'
+
+    const result = this.wrapTitle() + content.reduce((pre, next, index) => 
+      `${chalk.cyan(`${pre} ${++index}: ${next} `)}${chalk.green(line)}`, chalk.green(line))
+
+    return console.log(result)
   }
 }

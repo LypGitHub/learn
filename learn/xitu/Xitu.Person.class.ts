@@ -7,8 +7,9 @@ export default class Person implements PersonProperty {
   email: string;
   work_experience: string;
   write_bug: boolean;
-  interesting: boolean;
+  interesting: string[];
   skill: string[];
+  github: string;
   constructor(person: PersonProperty) {
     const {
       name,
@@ -19,7 +20,8 @@ export default class Person implements PersonProperty {
       work_experience,
       write_bug,
       interesting,
-      skill
+      skill,
+      github
     } = person;
     this.setName(name)
     this.setPhone(phone)
@@ -30,6 +32,7 @@ export default class Person implements PersonProperty {
     this.setInteresting(interesting)
     this.setWriteBug(write_bug)
     this.setSkill(skill)
+    this.setGitHub(github)
   }
   getName() {
     return this.name;
@@ -70,7 +73,7 @@ export default class Person implements PersonProperty {
   getInteresting() {
     return this.interesting;
   }
-  setInteresting(interesting: boolean) {
+  setInteresting(interesting: string[]) {
     this.interesting = interesting;
   }
   getWriteBug() {
@@ -82,11 +85,17 @@ export default class Person implements PersonProperty {
   setSkill(skill: string[]) {
     this.skill = skill;
   }
+  getGitHub() {
+    return this.github;
+  }
+  setGitHub(github: string) {
+    this.github = github;
+  }
   setWriteBug(write_bug: boolean) {
     this.write_bug = write_bug;
   }
   isInteresting() { 
-      return this.interesting;
+      return true;
   }
   canWriteBUG() { 
       return this.write_bug;

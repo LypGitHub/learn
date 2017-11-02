@@ -42,12 +42,12 @@ export interface PersonProperty {
    */
   write_bug?: boolean;
   /**
-   * 是否感兴趣
+   * 兴趣
    * 
-   * @type {boolean}
+   * @type {string[]}
    * @memberof PersonProperty
    */
-  interesting?: boolean;
+  interesting?: string[];
   /**
    * 邮箱
    * 
@@ -62,6 +62,13 @@ export interface PersonProperty {
    * @memberof PersonProperty
    */
   skill: string[];
+  /**
+   * github地址
+   * 
+   * @type {string}
+   * @memberof PersonProperty
+   */
+  github?: string;
   getName(): string;
   setName(name: string): void;
   getPhone(): string;
@@ -74,11 +81,13 @@ export interface PersonProperty {
   setEmail(email: string): void;
   getWorkExperience(): string;
   setWorkExperience(work_experience: string): void;
-  getInteresting(): boolean;
-  setInteresting(interesting: boolean): void;
+  getInteresting(): string[];
+  setInteresting(interesting: string[]): void;
   getWriteBug(): boolean;
   getSkill(): string[];
   setSkill(skill: string[]): void;
+  getGitHub(): string;
+  setGitHub(github: string): void;
   setWriteBug(write_bug: boolean): void;
   isInteresting(): boolean;
   canWriteBUG(): boolean;
@@ -97,6 +106,15 @@ export interface Frontend {
    */
   baseSkill: string[];
   getBaseSkill(): string[];
-  personSkill(): string[];
   tryToPlay(thing: string): string;
+}
+
+export interface Data {
+  color?: string;
+  type?: string;
+  content?: string;
+  title?: string;
+  setColor(color: string): void;
+  setType(type: string): void;
+  setContent(content: string): void;
 }
