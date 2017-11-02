@@ -61,4 +61,4 @@
  yarn nodeXitu
 ```
 
-![答案](static/preview.png){:height="100px" width="100px"}
+<a href="static/preview.png" target="_blank"><img src="static/preview.png" alt="答案" style="width:100px"></a>
