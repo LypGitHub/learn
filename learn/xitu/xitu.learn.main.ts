@@ -17,7 +17,7 @@ myProp.work_experience = `
     3. 不知道写什么。。。。。
     4. 不知道写什么。。。。。
 `
-myProp.write_bug = true
+myProp.write_bug = true 
 myProp.interesting = [
   'Javasript',
   'Css3',

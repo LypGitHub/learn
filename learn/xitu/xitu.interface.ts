@@ -89,7 +89,7 @@ export interface PersonProperty {
   getGitHub(): string;
   setGitHub(github: string): void;
   setWriteBug(write_bug: boolean): void;
-  isInteresting(): boolean;
+  isInteresting(things: string[]): boolean;
   canWriteBUG(): boolean;
 }
 

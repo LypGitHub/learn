@@ -94,10 +94,10 @@ export default class Person implements PersonProperty {
   setWriteBug(write_bug: boolean) {
     this.write_bug = write_bug;
   }
-  isInteresting() { 
-      return true;
+  isInteresting(things: string[]) { 
+    return this.interesting.some(item => things.includes(item));
   }
   canWriteBUG() { 
-      return this.write_bug;
+    return this.write_bug;
   }
 }

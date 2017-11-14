@@ -7,7 +7,8 @@
     "async": "node learn/async-learn.js",
     "promise": "node learn/promise-learn.js",
     "build-watch": "rm -rf learn/xitu/xitu.learn.main.js && tsc learn/xitu/xitu.learn.main.ts -watch -outDir learn/xituOut",
-    "nodeXitu": "node learn/xituOut/xitu.learn.main.js"
+    "nodeXitu": "node learn/xituOut/xitu.learn.main.js",
+    "ts": "rm -rf learn/ts/*.js && tsc learn/ts/*.ts -watch -outDir learn/tsOut"
   },
   "author": "",
   "license": "ISC",
