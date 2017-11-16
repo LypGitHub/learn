@@ -40,6 +40,9 @@ let obj = {
           }]
         }
       }]
+    },
+    func: function () {
+      console.log('function')
     }
   }]
 }
