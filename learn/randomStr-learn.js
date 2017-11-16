@@ -1,5 +1,5 @@
 const { validator, getBetweenNum } = require('../util');
-const regx = /[a-zA-Z0-9]/g
+const regx = /[a-z]/
 console.time('start')
 const getRandomStr = (length = 6, validCall) => {
   if (validator('isNaN', Number(length))) {
@@ -18,18 +18,17 @@ const getRandomStr = (length = 6, validCall) => {
 
   while(length) {
     const str = getStr()
-    length -= 1;
     if (validCall && typeof validCall === 'function') {
-      validCall(str) && resul.push(str)
+      validCall(str) && (result.push(str), length -= 1)
     } else {
-      resul.push(str)
+      result.push(str)
+      length -= 1
     }
   }
-  
-  return result.join(',');
+  return result.join('');
 }
 console.timeEnd('start')
 
-console.log('result: ', getRandomStr('9', (str) => {
+console.log(getRandomStr('9', (str) => {
   return regx.test(str)
 }))
